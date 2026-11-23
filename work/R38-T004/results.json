@@ -1,0 +1,36 @@
+{
+  "expected": {
+    "area_a": 4.0,
+    "area_b": 4.0,
+    "intersection_area": 1.0,
+    "union_area": 7.0,
+    "iou": 0.14285714285714285,
+    "invariant_holds": true
+  },
+  "actual": {
+    "box_a": [
+      0.0,
+      0.0,
+      2.0,
+      2.0
+    ],
+    "box_b": [
+      1.0,
+      1.0,
+      3.0,
+      3.0
+    ],
+    "area_a": 4.0,
+    "area_b": 4.0,
+    "intersection_coords": [
+      1.0,
+      1.0,
+      2.0,
+      2.0
+    ],
+    "intersection_area": 1.0,
+    "union_area": 7.0,
+    "iou": 0.14285714285714285,
+    "invariant_holds": true
+  }
+}
