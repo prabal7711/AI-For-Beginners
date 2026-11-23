@@ -1,0 +1,31 @@
+{
+  "expected": {
+    "iou": 0.14285714285714285,
+    "q1_expected": 0.14285714285714285,
+    "q3_expected": 0.0
+  },
+  "actual": {
+    "iou": 0.14285714285714285,
+    "q1_answer": 0.14285714285714285,
+    "q3_answer": 0.0,
+    "assessment": {
+      "q1": {
+        "question": "What is the IoU of boxes [0, 0, 4, 4] and [2, 2, 6, 6]?",
+        "answer": 0.14285714285714285,
+        "expected": 0.14285714285714285,
+        "rationale": "Area(A) = 16, Area(B) = 16. Overlap rectangle is [2, 2, 4, 4] with area = 4. Union = 16 + 16 - 4 = 28. IoU = 4 / 28 = 1/7."
+      },
+      "q2": {
+        "question": "Why does box [4, 5, 2, 8] fail validation?",
+        "diagnosed_error": "Inverted box: coords [4.0, 5.0, 2.0, 8.0] violate x1 <= x2 and y1 <= y2.",
+        "rationale": "x1 (4) is greater than x2 (2), representing an inverted horizontal coordinate span."
+      },
+      "q3": {
+        "question": "What is the IoU for adjacent boxes sharing an edge [0, 0, 2, 2] and [2, 0, 4, 2]?",
+        "answer": 0.0,
+        "expected": 0.0,
+        "rationale": "The intersection width is max(0, 2 - 2) = 0. Therefore intersection area is 0, giving IoU = 0.0."
+      }
+    }
+  }
+}
