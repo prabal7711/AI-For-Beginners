@@ -1,0 +1,16 @@
+{
+  "expected": {
+    "fitted_mean": 3.0,
+    "imputed_validation": [
+      100.0,
+      3.0
+    ]
+  },
+  "actual": {
+    "fitted_mean": 3.0,
+    "imputed_validation": [
+      100.0,
+      3.0
+    ]
+  }
+}

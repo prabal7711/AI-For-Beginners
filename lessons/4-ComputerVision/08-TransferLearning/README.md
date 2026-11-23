@@ -75,3 +75,22 @@ Read through [TrainingTricks.md](TrainingTricks.md) to deepen your knowledge of 
 ## [Assignment](lab/README.md)
 
 In this lab, we will use real-life [Oxford-IIIT](https://www.robots.ox.ac.uk/~vgg/data/pets/) pets dataset with 35 breeds of cats and dogs, and we will build a transfer learning classifier.
+
+## Applied Lab (R38-T007): Training-Only Imputation & Leakage Prevention
+
+When preparing image embeddings or tabular feature vectors for transfer learning, missing feature values must be imputed strictly using statistics estimated from the training partition. Fitting imputation parameters on validation or testing splits creates information leakage, artificially inflating validation metrics.
+
+* **Simulation/Mock Note**: This local implementation exercises the fit/transform contract deterministically on local fixtures without GPU or cloud compute dependencies.
+
+### Local Lab Invocation & Fixture
+
+- **Implementation**: [`applied-labs/r38-t007/example.py`](applied-labs/r38-t007/example.py)
+- **Test Suite**: [`applied-labs/r38-t007/test_example.py`](applied-labs/r38-t007/test_example.py)
+- **Input Fixture**: Training data `[2, None, 4]`, Validation data `[100, None]`
+- **Expected Output**: Training mean is $3.0$. Transformed validation vector is `[100.0, 3.0]` (preventing leakage; not `[100.0, 100.0]`). All-missing training sets are rejected with `ValueError`.
+
+Run tests:
+```bash
+python3 -m unittest discover -s lessons/4-ComputerVision/08-TransferLearning/applied-labs/r38-t007 -p "test_*.py"
+```
+
