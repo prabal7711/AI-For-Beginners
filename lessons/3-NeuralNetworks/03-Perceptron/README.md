@@ -91,3 +91,22 @@ In this lesson, we have implemented a perceptron for binary classification task,
 
 * [Instructions](lab/README.md)
 * [Notebook](lab/PerceptronMultiClass.ipynb)
+
+## Applied Lab (R38-T009): Single Perceptron Update & Configuration Evaluation
+
+The Rosenblatt perceptron is the fundamental building block of artificial neural networks. Understanding how learning rate hyperparameters affect the weight update vector and decision boundary convergence requires controlled single-step experimentation with explicit tie rules.
+
+* **Simulation/Mock Note**: This local example isolates the mathematical update mechanics on controlled fixtures without claiming real-world classification generalization.
+
+### Local Lab Invocation & Fixture
+
+- **Implementation**: [`applied-labs/r38-t009/example.py`](applied-labs/r38-t009/example.py)
+- **Test Suite**: [`applied-labs/r38-t009/test_example.py`](applied-labs/r38-t009/test_example.py)
+- **Input Fixture**: Weights `[0, 0]`, bias `0`, input `[1, 2]`, target `1`
+- **Expected Output**: For learning rate $\eta=1.0$, updated weights are `[1.0, 2.0]` and updated bias is `1.0`. Evaluates trade-offs across learning rates $[0.1, 0.5, 1.0]$.
+
+Run tests:
+```bash
+python3 -m unittest discover -s lessons/3-NeuralNetworks/03-Perceptron/applied-labs/r38-t009 -p "test_*.py"
+```
+

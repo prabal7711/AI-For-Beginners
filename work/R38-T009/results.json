@@ -1,0 +1,51 @@
+{
+  "expected_canonical": {
+    "weights": [
+      1.0,
+      2.0
+    ],
+    "bias": 1.0
+  },
+  "actual_canonical": {
+    "weights": [
+      1.0,
+      2.0
+    ],
+    "bias": 1.0
+  },
+  "experiment_summary": {
+    "configurations": {
+      "lr_0.1": {
+        "learning_rate": 0.1,
+        "updated_weights": [
+          0.1,
+          0.2
+        ],
+        "updated_bias": 0.1,
+        "step_size": 0.223606797749979,
+        "post_score": 0.6
+      },
+      "lr_0.5": {
+        "learning_rate": 0.5,
+        "updated_weights": [
+          0.5,
+          1.0
+        ],
+        "updated_bias": 0.5,
+        "step_size": 1.118033988749895,
+        "post_score": 3.0
+      },
+      "lr_1.0": {
+        "learning_rate": 1.0,
+        "updated_weights": [
+          1.0,
+          2.0
+        ],
+        "updated_bias": 1.0,
+        "step_size": 2.23606797749979,
+        "post_score": 6.0
+      }
+    },
+    "trade_off_analysis": "Trade-off Summary: Increasing learning rate from 0.1 to 1.0 scales weight displacement and post-update score linearly. Higher learning rate produces immediate correction margin on the current sample but risks overshooting and oscillation across multi-sample batches."
+  }
+}

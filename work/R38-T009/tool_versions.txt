@@ -1,0 +1,4 @@
+python_version: 3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]
+platform: macOS-27.2.1-arm64-arm-64bit-Mach-O
+task_id: R38-T009
+lesson: lessons/3-NeuralNetworks/03-Perceptron
