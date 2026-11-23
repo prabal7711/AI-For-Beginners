@@ -74,3 +74,21 @@ Picture generated from prompt *a closeup watercolor portrait of young male teach
 
 * VQGAN Paper: [Taming Transformers for High-Resolution Image Synthesis](https://compvis.github.io/taming-transformers/paper/paper.pdf)
 * CLIP Paper: [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/pdf/2103.00020.pdf)
+
+## Applied Lab (R38-T002): Classification Evaluation & Zero-Denominator Policy
+
+In multi-modal retrieval and classification tasks (such as zero-shot image classification with CLIP), evaluating prediction accuracy requires rigorous confusion matrix computation (True Positives, False Negatives, False Positives, True Negatives), precision, and recall. A critical boundary-case policy must explicitly handle zero denominators (e.g. when an evaluation split has zero positive predictions or zero actual positive samples).
+
+* **Simulation/Mock Note**: This local example evaluates classification metrics deterministically on local fixtures without model inference or GPU dependencies.
+
+### Local Lab Invocation & Fixture
+
+- **Implementation**: [`applied-labs/r38-t002/example.py`](applied-labs/r38-t002/example.py)
+- **Test Suite**: [`applied-labs/r38-t002/test_example.py`](applied-labs/r38-t002/test_example.py)
+- **Input Fixture**: `y_true = [1, 1, 0, 0]`, `y_pred = [1, 0, 1, 0]`
+- **Expected Output**: `TP=1, FN=1, FP=1, TN=1, precision=0.5, recall=0.5`. Under the documented zero-denominator policy, zero positive predictions yield `precision=0.0`.
+
+Run tests:
+```bash
+python3 -m unittest discover -s lessons/X-Extras/X1-MultiModal/applied-labs/r38-t002 -p "test_*.py"
+```
