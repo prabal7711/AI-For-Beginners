@@ -1,0 +1,18 @@
+{
+  "expected": [
+    "A",
+    "B",
+    "C"
+  ],
+  "actual_baseline": [
+    "A",
+    "B",
+    "C"
+  ],
+  "actual_refactored": [
+    "A",
+    "B",
+    "C"
+  ],
+  "equivalent": true
+}

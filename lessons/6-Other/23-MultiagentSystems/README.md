@@ -150,3 +150,22 @@ Take this lesson to the real world and try to conceptualize a multi-agent system
 Review the use of this type of system in industry. Pick a domain such as manufacturing or the video game industry and discover how multi-agent systems can be used to solve unique problems.
 
 ## [NetLogo Assignment](assignment.md)
+
+## Applied Lab (R38-T006): Dependency-Plan Validation & Topological Ordering
+
+In multi-agent systems, collaborative plans require coordinated action sequencing. Before distributing tasks across worker agents, the coordinator must validate the dependency graph, detect missing prerequisites by task ID, and reject circular execution dependencies.
+
+* **Simulation/Mock Note**: This local example demonstrates deterministic graph validation and Kahn's topological sort locally without external agent runtimes or network messaging.
+
+### Local Lab Invocation & Fixture
+
+- **Implementation**: [`applied-labs/r38-t006/example.py`](applied-labs/r38-t006/example.py)
+- **Test Suite**: [`applied-labs/r38-t006/test_example.py`](applied-labs/r38-t006/test_example.py)
+- **Input Fixture**: Task plan `{"A": [], "B": ["A"], "C": ["B"]}`
+- **Expected Output**: Order `["A", "B", "C"]`. Circular plans (e.g. `A -> B -> A`) raise `CyclicDependencyError`; unknown dependencies raise `MissingDependencyError` with the missing task identifier.
+
+Run tests:
+```bash
+python3 -m unittest discover -s lessons/6-Other/23-MultiagentSystems/applied-labs/r38-t006 -p "test_*.py"
+```
+
