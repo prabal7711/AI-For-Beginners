@@ -1,0 +1,22 @@
+{
+  "expected": {
+    "score": 0.0,
+    "initial_prediction": 0,
+    "error": 1,
+    "weights": [
+      1.0,
+      2.0
+    ],
+    "bias": 1.0
+  },
+  "actual": {
+    "score": 0.0,
+    "initial_prediction": 0,
+    "error": 1,
+    "weights": [
+      1.0,
+      2.0
+    ],
+    "bias": 1.0
+  }
+}

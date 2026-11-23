@@ -84,3 +84,22 @@ In this lab, you are asked to use the framework you constructed in this lesson t
 
 * [Instructions](lab/README.md)
 * [Notebook](lab/MyFW_MNIST.ipynb)
+
+## Applied Lab (R38-T003): Single Perceptron Update & Comparative Verification
+
+Before constructing multi-layered networks with backpropagation, understanding the elementary perceptron update step and its decision boundaries is fundamental. This lab implements a single perceptron prediction and weight update on a 2D fixture using a documented zero-score tie rule, comparing the direct algorithmic implementation with an independent closed-form reference.
+
+* **Simulation/Mock Note**: This local example demonstrates the perceptron mathematical update rule deterministically without cloud or framework dependencies.
+
+### Local Lab Invocation & Fixture
+
+- **Implementation**: [`applied-labs/r38-t003/example.py`](applied-labs/r38-t003/example.py)
+- **Test Suite**: [`applied-labs/r38-t003/test_example.py`](applied-labs/r38-t003/test_example.py)
+- **Input Fixture**: Weights `[0, 0]`, bias `0`, input `[1, 2]`, target `1`, learning rate `1.0`
+- **Expected Output**: Initial score `0` predicts `0` (tie rule). Error is `1`. Updated weights are `[1.0, 2.0]` and updated bias is `1.0`.
+
+Run tests:
+```bash
+python3 -m unittest discover -s lessons/3-NeuralNetworks/04-OwnFramework/applied-labs/r38-t003 -p "test_*.py"
+```
+
