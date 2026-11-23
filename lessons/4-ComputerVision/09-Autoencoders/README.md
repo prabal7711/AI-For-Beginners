@@ -95,3 +95,21 @@ For reference, read more about autoencoders in these resources:
 ## Assignment
 
 At the end of [this notebook using TensorFlow](AutoencodersTF.ipynb), you will find a 'task' - use this as your assignment.
+
+## Applied Lab (R38-T008): Tensor-Shape Contract & Failure Recovery
+
+In autoencoder training pipelines, the encoder network expects input images in normalized float ranges (e.g. $[0, 1]$) with rigid spatial dimensions. Preprocessing modules must enforce this contract strictly and maintain state recovery resilience when corrupted or out-of-range observations are encountered during batch loading.
+
+* **Simulation/Mock Note**: This local implementation verifies input normalization and state resilience deterministically without neural network training or GPU requirements.
+
+### Local Lab Invocation & Fixture
+
+- **Implementation**: [`applied-labs/r38-t008/example.py`](applied-labs/r38-t008/example.py)
+- **Test Suite**: [`applied-labs/r38-t008/test_example.py`](applied-labs/r38-t008/test_example.py)
+- **Input Fixture**: Batch `[[[0, 255], [128, 64]]]`
+- **Expected Output**: Shape `(1, 2, 2)` normalized to $[0.0, 1.0]$. Invalid data (e.g. negative values or missing fields) logs an error without crashing the pipeline, and subsequent valid batches process successfully.
+
+Run tests:
+```bash
+python3 -m unittest discover -s lessons/4-ComputerVision/09-Autoencoders/applied-labs/r38-t008 -p "test_*.py"
+```
