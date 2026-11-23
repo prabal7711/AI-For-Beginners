@@ -1,0 +1,77 @@
+{
+  "expected": [
+    {
+      "handler": "support",
+      "request": "Need help with setup"
+    },
+    {
+      "handler": "calculator",
+      "request": "calculate batch gradient"
+    },
+    {
+      "handler": "support",
+      "request": "Help calculate cross-entropy"
+    },
+    {
+      "handler": "fallback",
+      "request": "play background music"
+    }
+  ],
+  "actual": [
+    {
+      "request": "Need help with setup",
+      "matched_intents": [
+        "support"
+      ],
+      "selected_handler": "support",
+      "priority_reason": "Single intent 'support' matched.",
+      "response": "SupportService: Assistance provided for 'Need help with setup'.",
+      "real_service_limitations": [
+        "No live network latency simulation",
+        "No authentication/token refresh",
+        "No remote error code propagation"
+      ]
+    },
+    {
+      "request": "calculate batch gradient",
+      "matched_intents": [
+        "calculator"
+      ],
+      "selected_handler": "calculator",
+      "priority_reason": "Single intent 'calculator' matched.",
+      "response": "CalculatorService: Calculation handled for 'calculate batch gradient'.",
+      "real_service_limitations": [
+        "No live network latency simulation",
+        "No authentication/token refresh",
+        "No remote error code propagation"
+      ]
+    },
+    {
+      "request": "Help calculate cross-entropy",
+      "matched_intents": [
+        "support",
+        "calculator"
+      ],
+      "selected_handler": "support",
+      "priority_reason": "Ambiguous match ['support', 'calculator']; resolved by priority rule: support > calculator.",
+      "response": "SupportService: Assistance provided for 'Help calculate cross-entropy'.",
+      "real_service_limitations": [
+        "No live network latency simulation",
+        "No authentication/token refresh",
+        "No remote error code propagation"
+      ]
+    },
+    {
+      "request": "play background music",
+      "matched_intents": [],
+      "selected_handler": "fallback",
+      "priority_reason": "No known intent matched; routed to default fallback.",
+      "response": "FallbackService: Default resolution for 'play background music'.",
+      "real_service_limitations": [
+        "No live network latency simulation",
+        "No authentication/token refresh",
+        "No remote error code propagation"
+      ]
+    }
+  ]
+}

@@ -119,3 +119,25 @@ In this lab, you are asked to solve two classification problems using single- an
 * [Instructions](lab/README.md)
 * [Notebook](lab/LabFrameworks.ipynb)
 
+## Applied Lab (R38-T005): Agent-Component Routing & Offline Service Adapter
+
+Modern machine learning platforms decompose workflows across specialized backend services and model endpoints. Incoming agent requests are routed using explicit intent rules with fallback handling and structured decision audit trails.
+
+* **Simulation/Mock Note**: This local example demonstrates routing patterns using callable local adapters. It explicitly abstracts away live network latency, token-based authentication, and distributed state coordination.
+
+### Local Lab Invocation & Fixture
+
+- **Implementation**: [`applied-labs/r38-t005/example.py`](applied-labs/r38-t005/example.py)
+- **Test Suite**: [`applied-labs/r38-t005/test_example.py`](applied-labs/r38-t005/test_example.py)
+- **Intent Rules**:
+  * `help` $\rightarrow$ `support` adapter
+  * `calculate` $\rightarrow$ `calculator` adapter
+  * unmapped/unknown $\rightarrow$ `fallback` adapter
+  * Ambiguous queries (e.g. `help` and `calculate`) follow priority `support > calculator` with auditable logging.
+
+Run tests:
+```bash
+python3 -m unittest discover -s lessons/3-NeuralNetworks/05-Frameworks/applied-labs/r38-t005 -p "test_*.py"
+```
+
+
